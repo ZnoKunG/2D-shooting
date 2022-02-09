@@ -3176,14 +3176,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1893870537003840847, guid: f099323f1b1554748b1dfe4df71995e5, type: 3}
-      propertyPath: transition
-      value: 
-      objectReference: {fileID: 1222906884981614251}
-    - target: {fileID: 1893870537003840847, guid: f099323f1b1554748b1dfe4df71995e5, type: 3}
-      propertyPath: transitionTime
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1914350162802922931, guid: f099323f1b1554748b1dfe4df71995e5, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -3232,21 +3224,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelLoader
       objectReference: {fileID: 0}
-    - target: {fileID: 5186199862271984810, guid: f099323f1b1554748b1dfe4df71995e5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5186199862271984810, guid: f099323f1b1554748b1dfe4df71995e5, type: 3}
-      propertyPath: m_TagString
-      value: LevelLoader
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f099323f1b1554748b1dfe4df71995e5, type: 3}
---- !u!95 &1222906884981614251 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 844047777161399617, guid: f099323f1b1554748b1dfe4df71995e5, type: 3}
-  m_PrefabInstance: {fileID: 1222906884981614250}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2514367227759878629
 PrefabInstance:
   m_ObjectHideFlags: 0
