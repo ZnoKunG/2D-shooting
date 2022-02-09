@@ -6,6 +6,7 @@ public class Weapon : MonoBehaviour
     private Vector3 mousePos;
     public GameObject projectile;
     public Transform shotPoint;
+    public GameObject shotEffect;
  
     public float shotPower;
     public float damage;
@@ -22,8 +23,10 @@ public class Weapon : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 GameObject bullet = Instantiate(projectile, shotPoint.position, shotPoint.rotation);
+                Instantiate(shotEffect, shotPoint.position, shotPoint.rotation);
                 Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
                 rb.AddForce(shotPoint.up * shotPower, ForceMode2D.Impulse);
+                
                 shotTime = startTimebtwShots;
             }
         }
