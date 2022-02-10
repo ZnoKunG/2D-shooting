@@ -5,18 +5,24 @@ using UnityEngine;
 public class Phase2Behaviour : StateMachineBehaviour
 {
     private GameObject player;
+    private DamageInput damage;
     private LevelLoader transition;
-    private Enemy boss;
+    private Boss boss;
     private RandomSpawner spawner;
+
+    public float timeBeforeEnd;
+    public int buffDamage = 5;
     public float minimumDistance;
     public float followSpeed;
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        boss = animator.GetComponent<Enemy>();
+        boss = animator.GetComponent<Boss>();
+        damage = animator.GetComponent<DamageInput>();
         transition = GameObject.FindGameObjectWithTag("LevelLoader").GetComponent<LevelLoader>();
         spawner = GameObject.FindGameObjectWithTag("RandomSpawner").GetComponent<RandomSpawner>();
         spawner.enabled = false;
+        damage.damage = buffDamage;
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -28,12 +34,13 @@ public class Phase2Behaviour : StateMachineBehaviour
 
         if (boss.health <= 0)
         {
-            transition.LoadNextLevel();
+            boss.BossDie();
         }
+
     }
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-
+       
     }
 }

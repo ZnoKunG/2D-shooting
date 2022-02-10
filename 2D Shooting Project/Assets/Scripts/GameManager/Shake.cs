@@ -28,4 +28,9 @@ public class Shake : MonoBehaviour
     {
         camAnim.SetTrigger("kill");
     }
+
+    public void BossPhase2()
+    {
+        camAnim.SetTrigger("boss");
+    }
 }

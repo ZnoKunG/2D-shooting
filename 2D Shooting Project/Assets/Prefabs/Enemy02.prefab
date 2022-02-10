@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dieEffect: {fileID: 8251223028810531731, guid: ee937a203d0f6be4ebac1ed41ee91868, type: 3}
-  effect: {fileID: 2583387828258529509, guid: f69383a6c68bb894f8196dd0275374bf, type: 3}
+  dieParticle: {fileID: 8251223028810531731, guid: ee937a203d0f6be4ebac1ed41ee91868, type: 3}
   health: 2
   numOfFlash: 1
   invulnerableTime: 0.15

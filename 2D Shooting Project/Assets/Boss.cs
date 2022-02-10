@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Enemy : MonoBehaviour
+public class Boss : MonoBehaviour
 {
     private SpriteRenderer spriteRend;
     public GameObject dieEffect;
@@ -11,6 +12,8 @@ public class Enemy : MonoBehaviour
     private Shake shake;
     private UltiManager ultiManager;
     private ScoreManager scoreManager;
+    private LevelLoader transition;
+    public Slider healthbar;
 
     public float health;
     public int numOfFlash;
@@ -24,6 +27,12 @@ public class Enemy : MonoBehaviour
         shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<Shake>();
         ultiManager = GameObject.FindGameObjectWithTag("UltiManager").GetComponent<UltiManager>();
         scoreManager = GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreManager>();
+        transition = GameObject.FindGameObjectWithTag("LevelLoader").GetComponent<LevelLoader>();
+    }
+
+    private void Update()
+    {
+        healthbar.value = health;
     }
 
     private void OnCollisionEnter2D(Collision2D collider)
@@ -36,17 +45,7 @@ public class Enemy : MonoBehaviour
                 shake.CamShake();
                 StartCoroutine(Hurt());
             }
-            else
-            {
-                Debug.Log(scoreManager.totalScore);
-                scoreManager.totalScore++;
-                if (!ultiManager.ultiActive)
-                {
-                    ultiManager.ultiGage++;
-                }
-                shake.CamKill();
-                Die();
-            }
+            
         }
     }
 
@@ -63,11 +62,12 @@ public class Enemy : MonoBehaviour
         }
         Physics2D.IgnoreLayerCollision(6, 7, false);
     }
-    public void Die()
+    public void BossDie()
     {
         GameObject dieAnim = Instantiate(dieEffect, transform.position, dieEffect.transform.rotation);
         Destroy(dieAnim, 5f);
         Instantiate(dieParticle, transform.position, Quaternion.identity);
         Destroy(gameObject);
+        transition.LoadNextLevel();
     }
 }
