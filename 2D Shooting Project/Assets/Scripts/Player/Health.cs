@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class Health : MonoBehaviour
 {
     [Header ("Health")]
-    public int health;
+    public float health;
     public int numOfHearts;
 
     public Image[] hearts;
@@ -53,7 +53,7 @@ public class Health : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         health -= damage;
 

@@ -30,6 +30,7 @@ public class Boss : MonoBehaviour
         transition = GameObject.FindGameObjectWithTag("LevelLoader").GetComponent<LevelLoader>();
     }
 
+    
     private void Update()
     {
         healthbar.value = health;
